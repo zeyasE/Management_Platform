@@ -7,7 +7,7 @@ import NotFound from "./component/notfound";
 
 const Routes = (props) => (
   <Router {...props}>
-    <Route path="/about" componet={About} />
+    <Route path="/about" component={About} />
     <Route path="/" exact={true} component={App} />
     <Route path="*" component={NotFound} />
   </Router>
