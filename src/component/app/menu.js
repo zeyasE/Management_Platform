@@ -3,41 +3,47 @@ import "./menu.css";
 
 class Menu extends Component {
   state = {
-    sidemenu: false,
+    data: false,
+    open: "250px",
+    close: "100px",
   };
   sidetag = () => {
-    const newsidemenu = !this.state.sidemenu;
+    const newdata = !this.state.data;
     this.setState({
-      sidemenu: newsidemenu,
+      data: newdata,
     });
   };
   render() {
-    let statesidemenu;
-    if (this.state.sidemenu === true) {
-      statesidemenu = document.getElementById("sidebar").style.width = "250px";
-      // document.getElementById("main").style.marginLeft = "250px";
-    } else {
-      statesidemenu = document.getElementById("sidebar").style.width = "50px";
-      // document.getElementById("main").style.marginLeft = "50px";
-    }
+    // let statesidemenu;
+    // if (this.state.sidemenu === true) {
+    // statesidemenu = document.getElementById("sidebar").style.width = "250px";
+    // document.getElementById("main").style.marginLeft = "250px";
+    // } else {
+    // statesidemenu = document.getElementById("sidebar").style.width = "50px";
+    // document.getElementById("main").style.marginLeft = "50px";
+    // }
     return (
-      <div id="sidebar" className="sidebar">
-        <button className="openbtn" onclick={this.sidetag}>
+      <div
+        className="sidebar"
+        style={{ width: this.state.data ? this.state.close : this.state.open }}
+      >
+        <button className="openbtn" onClick={this.sidetag}>
           ☰ Open Sidebar
         </button>
         <a
           href="javascript:void(0)"
           className="closebtn"
-          onclick={this.sidetag}
+          onClick={this.sidetag}
         >
-          x
+          <div>
+            <a>{this.state.data ? this.state.cloase : this.state.open}</a>
+          </div>
         </a>
         <a href="#">All Project</a>
         <a href="#">Profile</a>
         <a href="#">Command</a>
         <a href="#">Output</a>
       </div>
-      {statesidemenu};
       // <div id="main">#main {
       //   transition: marjin-left 0.5s;
       //   padding: 16px;
